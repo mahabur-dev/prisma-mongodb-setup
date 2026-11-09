@@ -12,15 +12,3 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-
-
-model Student {
-  id    String @id @default(auto()) @map("_id") @db.ObjectId
-  name  String
-  email String @unique
-  phone String
-  createdAt DateTime @default(now())
-  isActive Boolean @default(true)
-  updatedAt DateTime @updatedAt
-
-}

@@ -1,10 +1,11 @@
 import express from 'express';
+import studentRoutes from './src/routes/student.routes.js';
 
 
 const app = express();
-import studentRoutes from './src/routes/student.routes.js';
-
 app.use(express.json());
+
+
 app.use('/api', studentRoutes);
 
 app.get('/', (req, res) => {
@@ -12,6 +13,4 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(3000, () => {
-    console.log('Server is running on port 3000');
-})
+export default app;
