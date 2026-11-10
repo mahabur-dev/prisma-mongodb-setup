@@ -1,5 +1,5 @@
-import prisma from "./lib/prisma.js";
-import app from "./src/.app.js";
+import prisma from "./src/lib/prisma.js";
+import app from "./src/app.js";
 
 
 
@@ -19,13 +19,9 @@ const startServer = async() => {
     }
     catch(error){
         console.log(error);
-        res.status(500).json({
-            data: `Check error ${error}`
-        })
         await prisma.$disconnect();
         process.exit(1);
 
     }
 }
-
-export default startServer;
+startServer();
